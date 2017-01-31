@@ -80,10 +80,11 @@
                     <label id="codeReplacer" class="pwdReplace" style="display:none;" for="txtVerifyCode">验证码</label>
                 </div>
                 <img title="看不清？点击换一张" id="imgVcode" src="${ctx}/img/authImg?rand='+Math.random()+'"
-                     onclick="this.src='${ctx}/img/authImg?r='+Math.random()" style="cursor:pointer"/>
+                     onclick="this.src='${ctx}/img/authImg?r='+Math.random()"
+                      style="margin-left: 5px; cursor:pointer; height: 30px; width: 75px;"/>
 
             </div>
-            <p class="tips_code" id="vcode_mindstyle" style="display:none;">
+            <p class="tips_code" id="vcode_mindstyle" style="display:none;"><!--  -->
                 <span id="login_vcode_error" style="display:none">请填写图片中的字符，不区分大小写</span>
             </p>
 

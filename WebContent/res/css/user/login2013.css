@@ -1,0 +1,479 @@
+@charset "utf-8";
+body, h1, h2, h3, p, ol, ul, dl, dd {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    font-family: "宋体";
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.head {
+    padding: 30px 0 56px 0;
+    margin: 0 auto;
+    width: 960px;
+    height: 42px;
+}
+
+.head img {
+    float: left;
+    width: 330px;
+    height: 42px;
+}
+
+.head ul {
+    width: 400px;
+    height: 32px;
+    line-height: 32px;
+    float: right;
+}
+
+.head ul li {
+    float: left;
+    margin-right: 16px;
+    background: url("../../images/huozhengtui.png") no-repeat;
+    height: 32px;
+    overflow: hidden;
+}
+
+.head .n1 {
+    background-position: 0 0;
+}
+
+.head .n2 {
+    background-position: 0 -33px;
+}
+
+.head .n3 {
+    background-position: 0 -66px;
+}
+
+.head li a, .head li a:hover {
+    color: #666666;
+    font-family: "Microsoft Yahei";
+    margin-left: 42px;
+    cursor: default;
+    text-decoration: none;
+    outline: none;
+    blr: expression(this.onFocus=this.blur());
+}
+
+.wrap {
+    background: #fff;
+    padding: 15px 80px 15px 15px;
+    width: 865px;
+    font-family: "Microsoft Yahei";
+    color: #b0b0b0;
+    margin: 0 auto;
+}
+
+.wrap a, .wrap a:hover {
+    color: #1a66b3;
+}
+
+.wrap input {
+    outline: none;
+    font-family: "Microsoft Yahei";
+}
+
+.wrap .pic {
+    width: 480px;
+    height: 384px;
+    float: left;
+}
+
+.wrap .pic img {
+    width: 480px;
+    height: 384px;
+}
+
+.infro {
+    width: 311px;
+    float: right;
+}
+
+.infro .title {
+    height: 46px;
+    font: normal 14px/46px "Microsoft Yahei";
+    color: #666;
+    font-size: 14px;
+}
+
+.infro .username, .infro .password, .infro .code {
+    height: 28px;
+    border: 1px solid #C7C6C6;
+    width: 309px;
+}
+
+.infro .code_wrap {
+    height: 30px;
+}
+
+.infro .code {
+    width: 177px;
+    float: left;
+    color: #b0b0b0;
+}
+
+.infro .username span, .infro .password span, .infro .code span {
+    width: 28px;
+    height: 28px;
+    float: left;
+    background: url("../../images/login.png");
+}
+
+.infro .password span {
+    background-position: 0 -28px;
+}
+
+.infro .code span {
+    background-position: 0 -56px;
+}
+
+.infro .username input, .infro .password input, .infro .code input {
+    float: left;
+    height: 17px;
+    padding: 5px 0;
+    border: 0;
+    color: #333333;
+}
+
+.infro .username input, .infro .password input {
+    width: 275px;
+}
+
+.infro .pwdReplace {
+    float: left;
+    font-size: 13px;
+    height: 21px;
+    line-height: 21px;
+    cursor: text;
+    margin-top: -23px;
+    color: #B0B0B0;
+    margin-left: 2px \9;
+}
+
+.infro .pwdReplace:hover {
+    cursor: text;
+}
+
+.infro .code input {
+    width: 146px;
+    float: left;
+}
+
+.tips {
+    height: 24px;
+    line-height: 24px;
+}
+
+.tips_code {
+    height: 24px;
+    line-height: 24px;
+    margin-top: 2px;
+}
+
+.tips span {
+    display: none;
+}
+
+.code_pic img {
+    width: 130px;
+    height: 30px;
+    float: left;
+}
+
+.infro .error {
+    border-color: #f44700;
+}
+
+.infro .focus {
+    border-color: #61affd;
+    color: #404040
+}
+
+.error_words {
+    color: #f42e00;
+}
+
+.auto_login {
+    width: 310px;
+    height: 22px;
+    line-height: 22px;
+    *margin-left: -3px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.auto_login a {
+    float: right;
+}
+
+.auto_login span {
+    color: #666666;
+}
+
+.auto_login input {
+    vertical-align: middle;
+    margin-top: -1px;
+    margin-left: 1px;
+}
+
+.safe {
+    display: none;
+}
+
+.infro .btn a:link, .infro .btn a:visited, .infro .btn a:hover, .infro .btn a:active {
+    width: 100%;
+    border-radius: 3px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    font: normal 16px/33px "Microsoft Yahei";
+    background: #f44700;
+}
+
+.infro .btn_login {
+    width: 100%;
+    border-radius: 3px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    font: normal 16px/33px "Microsoft Yahei";
+    background: #f44700;
+}
+
+.infro .btn a:link {
+    background: #f44700;
+    color: #fff;
+}
+
+.infro .btn a:visited {
+    background: #f46700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.infro .btn a:hover {
+    background: #f46700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.infro .btn a:active {
+    background: url("https://login.dangdang.com/images/btn.png") no-repeat;
+    text-decoration: none;
+    color: #fff;
+}
+
+.infro p.winerror {
+    position: relative;
+    z-index: 200;
+}
+
+.infro p.winerror .error {
+    position: absolute;
+    display: block;
+    width: 214px;
+    height: 58px;
+    top: -5px;
+    background: url("https://login.dangdang.com/images/login_sprites_20110808.png") no-repeat 0 -74px;
+    padding: 13px 0 0 10px;
+    color: #666;
+    line-height: 16px;
+    height: 57px \9;
+    padding-top: 14px \9;
+}
+
+.infro p.winerror .error b {
+    display: block;
+    color: #404040;
+    font-weight: bold;
+    padding: 0 0 3px 13px;
+}
+
+.infro .winerror02 .error {
+    z-index: 201;
+    position: absolute;
+    width: 180px;
+    height: 46px;
+    top: 214px;
+    *top: 233px;
+    background: url("https://login.dangdang.com/images/login_sprites_20110808.png") no-repeat -237px -74px;
+    padding: 15px 0 0 0;
+    color: #404040;
+    overflow: hidden;
+    padding-top: 16px \9;
+    height: 45px \9;
+}
+
+.infro .winerror02 .error input {
+    border: none;
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: -4px 3px 0 11px;
+    *margin: -9px -1px -4px 6px;
+    _display: inline;
+}
+
+.infro .winerror02 .error b {
+    display: block;
+    margin-top: -3px;
+    *margin-top: -6px;
+    padding: 0 0 6px 11px;
+}
+
+.infro .winerror02 .error .error_nickname {
+    float: left;
+    margin-right: 23px;
+    margin-top: -10px;
+}
+
+.infro .winerror02 .error .error_mobilename {
+    float: left;
+    margin-top: -10px;
+}
+
+.infro .replacetype01 {
+    padding: 7px 0 0 23px;
+    position: absolute;
+    margin-left: 8px;
+    top: 194px;
+    *top: 214px;
+    background: url("https://login.dangdang.com/images/signin_replacetype.png") no-repeat 10px 7px;
+    *background-position: 10px 6px;
+}
+
+.infro .replacetype02 {
+    padding: 7px 0 0 23px;
+    position: absolute;
+    margin-left: 8px;
+    top: 194px;
+    *top: 214px;
+    background: url("https://login.dangdang.com/images/signin_replacetype.png") no-repeat -105px 6px;
+    *background-position: -105px 5px;
+}
+
+.register {
+    height: 24px;
+    line-height: 24px;
+    padding-top: 10px;
+}
+
+.register span {
+    float: right;
+    margin-right: 10px;
+}
+
+.register .register_btn, .register .register_btn:hover {
+    float: right;
+    width: 61px;
+    height: 23px;
+    background: url("../../images/register.png");
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+    line-height: 23px;
+}
+
+.register .other {
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    blr: expression(this.onFocus=this.blur());
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+.partner {
+    float: right;
+}
+
+.partner p {
+    height: 32px;
+    line-height: 32px;
+}
+
+.partner ul {
+    padding-top: 3px;
+}
+
+.partner ul li {
+    float: left;
+    margin-right: 22px;
+    height: 18px;
+    line-height: 18px;
+}
+
+.partner ul li.mr0 {
+    margin-right: 0;
+}
+
+.partner li a {
+    color: #666;
+}
+
+.account {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.account span {
+    font-family: arial;
+    margin-left: 13px;
+}
+
+.asure {
+    padding-top: 7px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}

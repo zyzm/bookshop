@@ -105,7 +105,7 @@ var user = {
     }
 
 };
-
+//1.初始化2.调用submmit
 $(function () {
     user.init.initEvent();
 });

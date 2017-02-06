@@ -6,14 +6,14 @@
 	<class name="com.zy.entities.User" table="t_user">
 		<id name="userid" type="java.lang.String">
 			<column name="uid" sql-type="char(36)" not-null="true" />
-			<generator class="uuid" />
+			<generator class="assigned" />
 		</id>
 
-		<property name="loginname" type="java.lang.String">
+		<property name="loginName" type="java.lang.String">
 			<column name="loginname" length="20" />
 		</property>
 
-		<property name="loginpass" type="blob">
+		<property name="loginPass" type="org.hibernate.type.MaterializedBlobType">
 			<column name="loginpass" sql-type="blob" />
 		</property>
 
@@ -29,7 +29,7 @@
 			<column name="activationCode" sql-type="char(64)" />
 		</property>
 
-		<property name="salt" type="blob">
+		<property name="salt" type="org.hibernate.type.MaterializedBlobType">
 			<column name="salt" sql-type="blob" />
 		</property>
 

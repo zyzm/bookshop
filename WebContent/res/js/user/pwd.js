@@ -129,7 +129,8 @@ function errorcode(code) {
         case 2:
             $("#loginpassError").css("display", "block");
             $("#loginpassError").text("原密码错误！");
-            _change("#vCode");
+            //_change("#vCode");
+            show_vcode();
             break;
         case 3:
             $("#newpassError").css("display", "block");

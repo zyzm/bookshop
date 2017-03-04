@@ -49,7 +49,7 @@
 <div style="margin-top: 5px;margin-left: 20px;" class="trTop">
     <c:choose>
         <c:when test="${not empty sessionScope.user}">
-            会员：${sessionScope.user.loginname}&nbsp;&nbsp;|&nbsp;&nbsp;
+            会员：${sessionScope.user.loginName}&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="${ctx}/cart/mycart" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="${ctx}/order/myorder" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="${ctx}/changePwd" target="body">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;

@@ -53,6 +53,6 @@ public class IndexController
 	@RequestMapping("/changePwd")
 	public String changePwd()
 	{
-		return "user/pwd.jsp";
+		return "user/pwd";
 	}
 }

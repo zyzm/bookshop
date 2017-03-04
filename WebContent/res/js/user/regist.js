@@ -34,6 +34,10 @@ var user = {
             $('#loginnameError').css('display', 'block');
             flag = false;
         }
+        if (user.data.loginname.length < 6 || user.data.loginname.length > 20) {
+            $('#loginnameError').text('登录名长度只能在4-20位字符之间').css('display', 'block');
+            flag = false;
+        }
         if ($.trim(user.data.loginpass) == '') {
             $('#loginpassError').text('请输入密码').css('display', 'block');
             flag = false;

@@ -64,18 +64,39 @@ public class BaseDaoImpl<T> implements BaseDaoI<T>{
 		}
 		return q.list();
 	}
+	
+	@Override
+	public List<T> page(String hql, int page, int rows, Object... param) {
+		Query q = this.getSession().createQuery(hql);
+		if (param != null && param.length > 0) {
+			for (int i = 0; i < param.length; i++) {
+				q.setParameter(i, param[i]);
+			}
+		}
+		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
+	}
 
 	@Override
 	public T get(String hql, Object... param)
 	{
 		// TODO Auto-generated method stub
-		List l = this.find(hql, param);
+		List<T> l = this.find(hql, param);
 		if (l != null && l.size() > 0) {
 			return (T) l.get(0);
 		}
 		return null;
 	}
 
+	public int count(String hql, Object... param) {
+		Query q = this.getSession().createQuery(hql);
+		if (param != null && param.length > 0) {
+			for (int i = 0; i < param.length; i++) {
+				q.setParameter(i, param[i]);
+			}
+		}
+		return ((Number)q.uniqueResult()).intValue();
+	}
+	
 	@Override
 	public Integer executeHql(String hql)
 	{

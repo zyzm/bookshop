@@ -63,7 +63,7 @@
     </c:choose>
     <div align="center">
         <br>
-        <form action="${ctx}/book/searchBook" method="get" target="body" id="form1">
+        <form action="${ctx}/searchBook" method="get" target="body" id="form1">
             <input type="text" name="key"/>
             <span>
                 <a href="javascript:document.getElementById('form1').submit();">

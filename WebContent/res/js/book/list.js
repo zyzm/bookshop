@@ -21,7 +21,7 @@ $(function () {
                     url;
                 if(n != -1){
                     url = location.href.substring(0, n);
-                } else {
+                } else {  
                     url = location.href;
                 }
                 location.href = url + '&pageNumber=' + e.curr;

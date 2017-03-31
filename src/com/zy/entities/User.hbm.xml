@@ -40,5 +40,19 @@
 		<property name="registDate" type="java.util.Date">
 			<column name="registDate" />
 		</property>
+		
+		<set name="cartitems" table="t_cartitem" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" length="36" />
+            </key>
+            <one-to-many class="com.zy.entities.Cartitem" />
+        </set>
+        
+         <set name="orders" table="t_order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" length="36" />
+            </key>
+            <one-to-many class="com.zy.entities.Order" />
+        </set>
 	</class>
 </hibernate-mapping>

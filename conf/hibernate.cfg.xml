@@ -4,12 +4,12 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-    	<!-- 配置 hibernate 的基本属性 
+    	<!-- 配置 hibernate 的基本属性  
        <property name="connection.username">root</property>
 		<property name="connection.password">root</property>
 		<property name="connection.url">jdbc:mysql://localhost:3306/book2</property>
 		 <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		 -->
+		-->
     	<!-- 方言 -->
     	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
     	
@@ -19,9 +19,8 @@
     
     	<!-- 生成数据表的策略 -->
     	<property name="hibernate.hbm2ddl.auto">update</property>
-    	
     	<!-- 二级缓存相关 -->
-    	
+    	<property name="hibernate.jdbc.batch_size">10</property>
     </session-factory>
     
 </hibernate-configuration>

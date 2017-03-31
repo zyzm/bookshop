@@ -33,12 +33,12 @@
 	</bean>
 	
 	<!-- 配置 Spring 的声明式事务 -->
-	<!-- 1. 配置 hibernate 的事务管理器 -->
+	<!-- 1. 配置 hibernate 的事务管理器  -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
-	<!-- 2. 配置事务属性 -->
+   
+	<!-- 2. 配置事务属性-->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true"/>
@@ -46,11 +46,14 @@
 			<tx:method name="*"/>
 		</tx:attributes>
 	</tx:advice>
-	
-	<!-- 3. 配置事务切入点, 再把事务属性和事务切入点关联起来 -->
+	 
+	<!-- 3. 配置事务切入点, 再把事务属性和事务切入点关联起来/bookshop/src/com/zy/controller/OrderController.java-->
 	<aop:config>
 		<aop:pointcut expression="execution(* com.zy.service.*.*(..))" id="txPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>
-
+	 
+	<!-- 
+	<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+ -->
 </beans>

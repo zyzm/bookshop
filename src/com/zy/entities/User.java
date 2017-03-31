@@ -2,6 +2,9 @@ package com.zy.entities;
 
 import java.sql.Blob;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class User
 {
@@ -14,6 +17,8 @@ public class User
 	private byte[] salt;
 	private String mobile;
 	private Date registDate;
+	private Set<Cartitem> cartitems;
+	private Set<Order> orders;
 	public String getUserid()
 	{
 		return userid;
@@ -85,6 +90,22 @@ public class User
 	public void setRegistDate(Date registDate)
 	{
 		this.registDate = registDate;
+	}
+	public Set<Cartitem> getCartitems()
+	{
+		return cartitems;
+	}
+	public void setCartitems(Set<Cartitem> cartitems)
+	{
+		this.cartitems = cartitems;
+	}
+	public Set<Order> getOrders()
+	{
+		return orders;
+	}
+	public void setOrders(Set<Order> orders)
+	{
+		this.orders = orders;
 	}
 	
 	

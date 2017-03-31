@@ -60,7 +60,7 @@ function sendUpdate(quantityelem, quantity) {
             alert('更改数量未知错误');
         },
         success: function (data) {
-            if (data.status == 1) {
+            if (data['status'] == 'success') {
                 quantityelem.val(quantity);
                 subtotal.text(round(currPrice.text() * quantity, 2));
                 showTotal();

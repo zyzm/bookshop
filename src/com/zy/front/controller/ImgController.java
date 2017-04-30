@@ -1,4 +1,4 @@
-package com.zy.controller;
+package com.zy.front.controller;
 
 import java.awt.Color;
 import java.awt.Font;

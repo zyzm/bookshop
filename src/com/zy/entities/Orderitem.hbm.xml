@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-29 21:05:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.zy.entities.Orderitem" table="t_orderitem" catalog="book2">
+        <id name="orderItemId" type="string">
+            <column name="orderItemId" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="order" class="com.zy.entities.Order" fetch="select">
+            <column name="oid" length="36" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="subtotal" type="big_decimal">
+            <column name="subtotal" precision="8" />
+        </property>
+        <property name="bid" type="string">
+            <column name="bid" length="36" />
+        </property>
+        <property name="bname" type="string">
+            <column name="bname" length="200" />
+        </property>
+        <property name="currPrice" type="big_decimal">
+            <column name="currPrice" precision="8" />
+        </property>
+        <property name="imageB" type="string">
+            <column name="image_b" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

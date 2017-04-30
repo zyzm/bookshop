@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-25 17:18:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.zy.entities.Cartitem" table="t_cartitem" catalog="book2">
+        <id name="cartItemId" type="string">
+            <column name="cartItemId" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="book" class="com.zy.entities.Book" fetch="select" lazy="false">
+            <column name="bid" length="36" />
+        </many-to-one>
+        <many-to-one name="user" class="com.zy.entities.User" fetch="select">
+            <column name="uid" length="36" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="orderBy" type="int"  insert="false" update="false">
+            <column name="orderBy" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

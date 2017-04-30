@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-16 14:47:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.zy.entities.Book" table="t_book" catalog="book2">
+        <id name="bid" type="string">
+            <column name="bid" sql-type="char(36)" not-null="true" />
+            <generator class="assigned" />
+        </id>
+        <property name="bname" type="string">
+            <column name="bname" length="200" />
+        </property>
+        <property name="author" type="string">
+            <column name="author" length="50" />
+        </property>
+        <property name="price" type="big_decimal">
+            <column name="price" precision="8" />
+        </property>
+        <property name="currPrice" type="big_decimal">
+            <column name="currPrice" precision="8" />
+        </property>
+        <property name="discount" type="big_decimal">
+            <column name="discount" precision="3" scale="1" />
+        </property>
+        <property name="press" type="string">
+            <column name="press" length="100" />
+        </property>
+        <property name="publishtime" type="string">
+            <column name="publishtime" length="10" />
+        </property>
+        <property name="edition" type="java.lang.Integer">
+            <column name="edition" />
+        </property>
+        <property name="pageNum" type="java.lang.Integer">
+            <column name="pageNum" />
+        </property>
+        <property name="wordNum" type="java.lang.Integer">
+            <column name="wordNum" />
+        </property>
+        <property name="printtime" type="string">
+            <column name="printtime" length="10" />
+        </property>
+        <property name="booksize" type="java.lang.Integer">
+            <column name="booksize" />
+        </property>
+        <property name="paper" type="string">
+            <column name="paper" length="50" />
+        </property>
+        <property name="cid" type="string">
+            <column name="cid" length="36" />
+        </property>
+        <property name="imageW" type="string">
+            <column name="image_w" length="100" />
+        </property>
+        <property name="imageB" type="string">
+            <column name="image_b" length="100" />
+        </property>
+        <property name="orderBy" type="int">
+            <column name="orderBy" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

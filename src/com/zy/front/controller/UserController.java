@@ -1,4 +1,4 @@
-package com.zy.controller;
+package com.zy.front.controller;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;

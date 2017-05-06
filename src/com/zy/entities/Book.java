@@ -38,6 +38,32 @@ public class Book
 		this.orderBy = orderBy;
 	}
 
+	public Book(String bid, String bname, String author, BigDecimal price,
+			BigDecimal currPrice, BigDecimal discount, String press,
+			String publishtime, Integer edition, Integer pageNum,
+			Integer wordNum, String printtime, Integer booksize, String paper,
+			String cid, String imageW, String imageB)
+	{
+		super();
+		this.bid = bid;
+		this.bname = bname;
+		this.author = author;
+		this.price = price;
+		this.currPrice = currPrice;
+		this.discount = discount;
+		this.press = press;
+		this.publishtime = publishtime;
+		this.edition = edition;
+		this.pageNum = pageNum;
+		this.wordNum = wordNum;
+		this.printtime = printtime;
+		this.booksize = booksize;
+		this.paper = paper;
+		this.cid = cid;
+		this.imageW = imageW;
+		this.imageB = imageB;
+	}
+
 	public Book(String bname, String author, BigDecimal price,
 			BigDecimal currPrice, BigDecimal discount, String press,
 			String publishtime, Integer edition, Integer pageNum,
@@ -62,6 +88,31 @@ public class Book
 		this.imageB = imageB;
 		this.orderBy = orderBy;
 	}
+	
+	public Book(String bname, String author, BigDecimal price,
+			BigDecimal currPrice, BigDecimal discount, String press,
+			String publishtime, Integer edition, Integer pageNum,
+			Integer wordNum, String printtime, Integer booksize, String paper,
+			String cid, String imageW, String imageB)
+	{
+		this.bname = bname;
+		this.author = author;
+		this.price = price;
+		this.currPrice = currPrice;
+		this.discount = discount;
+		this.press = press;
+		this.publishtime = publishtime;
+		this.edition = edition;
+		this.pageNum = pageNum;
+		this.wordNum = wordNum;
+		this.printtime = printtime;
+		this.booksize = booksize;
+		this.paper = paper;
+		this.cid = cid;
+		this.imageW = imageW;
+		this.imageB = imageB;
+	}
+
 
 	public String getBid()
 	{

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -78,12 +79,12 @@ public class ToolPbkdf2 {
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        String pass = "qqqqqq";
+        String pass = "admin";
         byte[] salt = generateSalt();
-
+        System.out.print(salt);
 
         byte[] encryptedPassword = getEncryptedPassword(pass, salt);
-
+        System.out.print(encryptedPassword);
         boolean bool = authenticate(pass, encryptedPassword, salt);
         System.out.println(bool);
     }

@@ -26,8 +26,8 @@
 			<column name="description" length="100" />
 		</property>
 		
-		<property name="orderBy" type="java.lang.Long">
-			<column name="orderBy" />
+		<property name="orderBy" type="int"  insert="false" update="false">
+			<column name="orderBy" not-null="true" />
 		</property>
 
 	</class>

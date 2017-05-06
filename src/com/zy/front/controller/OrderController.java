@@ -1,11 +1,6 @@
 package com.zy.front.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -91,7 +86,7 @@ public class OrderController
      * 取消订单，订单状态由1变为5
      */
 	@ResponseBody
-	@RequestMapping(value = "/order/cancleOrder")
+	@RequestMapping(value = {"/order/cancleOrder","admin/order/cancleOrder"})
 	public  Map<String, String> cancleOrder(@RequestParam(value = "oid") String orderId) 
 	{
 		Map<String, String> msg = new HashMap<>();

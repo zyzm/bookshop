@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.zy.dao.Impl.BookDaoImpl;
 import com.zy.entities.Book;
-import com.zy.entities.User;
 import com.zy.tools.security.Page;
 
 @Service("bookService")
@@ -57,5 +56,16 @@ public class BookService
 		return bookPage;
 	}
 
-	
+	public void saveOrUpdate(Book book)
+	{
+		// TODO Auto-generated method stub
+		bookDao.saveOrUpdate(book);
+	}
+
+	public void delete(Book book)
+	{
+		// TODO Auto-generated method stub
+		bookDao.delete(book);
+	}
+
 }

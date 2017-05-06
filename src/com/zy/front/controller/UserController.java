@@ -122,8 +122,8 @@ public class UserController
 		user.setRegistDate(new Date());
 		user.setEmail(email);
 		user.setStatus(0);
-		byte[] salt = new byte[0];
-		byte[] password = new byte[0];
+		byte[] salt = new byte[8];
+		byte[] password = new byte[8];
 		try
 		{
 			salt = ToolPbkdf2.generateSalt();

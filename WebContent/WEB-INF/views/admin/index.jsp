@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,8 +19,8 @@
 		</div>
 
 		<div class="dl-log">
-			欢迎您，<span class="dl-log-user">${sessionScope.admin.adminname}</span>
-			<a href="${ctx}/admin/login/logout" title="退出系统" class="dl-log-quit">[退出]</a>
+			欢迎您，<span class="dl-log-user">${sessionScope.admin.adminName}</span>
+			<a href="${ctx}/admin/logout/" title="退出系统" class="dl-log-quit">[退出]</a>
 		</div>
 	</div>
 	<div class="content">
@@ -50,15 +52,15 @@
 					items : [ {
 						id : '12',
 						text : '图书管理',
-						href : '${ctx}/admin/book'
+						href : '${ctx}/admin/book/'
 					}, {
 						id : '3',
 						text : '新增图书',
-						href : '${ctx}/admin/book/addView'
+						href : '${ctx}/admin/book/addView/'
 					}, {
 						id : '4',
 						text : '订单管理',
-						href : '${ctx}/admin/order/findAll'
+						href : '${ctx}/admin/order/findAll/'
 					}]
 				} ]
 			}];

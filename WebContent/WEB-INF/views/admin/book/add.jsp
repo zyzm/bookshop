@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,7 +13,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
-  	<link rel="stylesheet" type="text/css" href="${ctx}/res/admin/css/book/add.css">
+  	<!--<link rel="stylesheet" type="text/css" href="${ctx}/res/admin/css/book/add.css">-->
   	<link href="${pageContext.request.contextPath}/res/lib/css/dpl-min.css" rel="stylesheet" type="text/css" />
   	<link href="${pageContext.request.contextPath}/res/lib/css/bui-min.css" rel="stylesheet" type="text/css" />
   	<style>
@@ -25,7 +25,7 @@
   </head>
   <body>
   <div>
-   <p style="font-weight: 900; color: red;">${msg }</p>
+   <p style="font-weight: 900; color: red;">${msg}</p>
    <form class="form-horizontal" action="${ctx}/admin/book/addBook" enctype="multipart/form-data" method="post" id="form">
 		<div class="control-group">
 			<label class="control-label">书名：</label>
@@ -36,13 +36,13 @@
 		<div class="control-group">
 			<label class="control-label">大图：</label>
 			<div class="controls">
-				<input type="file" class="input-large" id="image_w" name="imageW"/>
+				<input type="file" class="input-middle" id="image_w" name="image"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">小图：</label>
 			<div class="controls">
-				<input type="file" class="input-large" id="image_b" name="imageB"/>
+				<input type="file" class="input-middle" id="image_b" name="image"/>
 			</div>
 		</div>
 		<div class="row">
@@ -61,7 +61,7 @@
 			<div class="control-group span6">
 				<label class="control-label">当前价：</label>
 				<div class="controls">
-					<input type="text" class="input-small" id="currPrice" name="currPrice"/>
+					 <input type="text" class="input-small" id="currPrice" name="currPrice" readOnly="true" value=/> 
 				</div>
 			</div>
 		</div>
@@ -134,7 +134,7 @@
 				   <select id="pid" onchange="loadChildren()">
 					   <option value="">请选择一级分类</option>
 					   <c:forEach items="${categoryList }" var="onecategory">
-						   <option value="${onecategory.cid}">${onecategory.cname}</option>
+						   <option value="${onecategory.categoryid}">${onecategory.categoryName}</option>
 					   </c:forEach>
 				   </select>
 			   </div>
@@ -180,6 +180,17 @@
 				  }
 		  );
 
+		  function setCurrPrice()
+		  {
+			  var price = $("#price").val();
+			  var discount = $("#discount").val();
+			  var c=price*discount/10;
+			  $("#currPrice").val(c);
+		  }
+		  
+		  $("#price").blur(setCurrPrice);
+		  $("#discount").blur(setCurrPrice);
+		  
 		  $("#btn").click(function() {
 			  var bname = $("#bname").val();
 			  var currPrice = $("#currPrice").val();
@@ -192,20 +203,21 @@
 			  var image_w = $("#image_w").val();
 			  var image_b = $("#image_b").val();
 
-			  if(!bname||bname=='' || !currPrice||currPrice=='' || !price||price=='' || !discount || !author||author=='' || !press||press=='' || !pid||pid=='' || !cid||cid=='' || !image_w||image_w=='' || !image_b||image_b=='') {
+			  //|| !currPrice||currPrice==''   isNaN(currPrice) || 
+			  if(!bname||bname=='' || !price||price=='' || !discount || !author||author=='' || !press||press=='' || !pid||pid=='' || !cid||cid=='' || !image_w||image_w=='' || !image_b||image_b=='') {
 				  alert("图名、当前价、定价、折扣、作者、出版社、1级分类、2级分类、大图、小图都不能为空！");
 				  return false;
 			  }
-			  if(isNaN(currPrice) || isNaN(price) || isNaN(discount)||discount<0.0||discount>(10.0)) {
+			  if(isNaN(price) || isNaN(discount)||discount<0.0||discount>(10.0)) {
 				  alert("当前价、定价、折扣必须是合法小数！");
 				  return false;
 			  }
 			  $("#form").submit();
 		  });
-
-
 	  });
-
+	  
+	 
+	  
 	  function loadChildren()
 	  {
 		  var pid=$('#pid').val();
@@ -230,7 +242,7 @@
 				  }
 				  for(var i=0;i<data.length;i++)
 				  {
-					  var celem=$("<option>").attr('value',data[i]['cid']).text(data[i]['cname']);
+					  var celem=$("<option>").attr('value',data[i]['categoryid']).text(data[i]['categoryName']);
 					  $(cidselect).append(celem);
 				  }
 			  },

@@ -56,8 +56,8 @@
         <property name="imageB" type="string">
             <column name="image_b" length="100" />
         </property>
-        <property name="orderBy" type="int">
-            <column name="orderBy" not-null="true" />
-        </property>
+        <property name="orderBy" type="int"  insert="false" update="false">
+			<column name="orderBy" not-null="true" />
+		</property>
     </class>
 </hibernate-mapping>

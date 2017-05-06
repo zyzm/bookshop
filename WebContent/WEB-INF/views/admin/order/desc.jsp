@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -48,11 +49,11 @@
 							<th class="tt" align="left">数量</th>
 							<th class="tt" align="left">小计</th>
 						</tr>
-						<c:forEach items="${order.orderItems}" var="orderitem">
+						<c:forEach items="${order.orderitems}" var="orderitem">
 						<tr style="padding-top: 20px; padding-bottom: 20px;">
 							<td class="td" width="400px">
 								<div class="bookname">
-								  <img align="middle" width="70" src="${ctx}${orderitem.imageB}"/>
+								  <img align="middle" width="70" src="${ctx}/${orderitem.imageB}"/>
 								  <a href="${ctx}/admin/book/editView?bid=${orderitem.bid}">${fn:substring(orderitem.bname,0,25)}</a>
 								</div>
 							</td>

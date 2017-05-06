@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>登陆页面</title>
@@ -45,7 +46,7 @@ body {
         </tr>
         <tr>
           <td height="96" valign="top" background="${ctx}/res/admin/images/login_9.gif">
-          	<form action="${ctx}/admin/login/logon" method="post">
+          	<form action="${ctx}/admin/login/" method="post">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="25%" height="25">&nbsp;</td>
@@ -55,7 +56,7 @@ body {
                   </label>
                 </td>
                 <td width="27%" rowspan="2"><a href="javascript:submit()">
-                  <img src="${ctx}/res/admin/images/login_2.gif" width="57" height="55" border="0" /></a>
+                  <img src="${ctx}/res/admin/images/login_2.gif" width="57" height="55" border="0"/></a>
                 </td>
               </tr>
               <tr>
@@ -84,7 +85,7 @@ body {
                 <td height="129">&nbsp;</td>
               </tr>
               <tr>
-                <td align="center">版权所有 &copy; <a href="http://www.passion.net">www.passion.net</a> </td>
+                <td align="center">版权所有 &copy; <a href="http://www.zhangyu.net">www.zhangyu.net</a> </td>
               </tr>
             </table>
           </td>

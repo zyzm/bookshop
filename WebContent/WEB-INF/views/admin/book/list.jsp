@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -19,7 +20,7 @@
                 <div class="inner">
                     <a class="pic" title="${book.bname}"
                        href="${ctx}/admin/book/editView?bid=${book.bid }"><img class="book"
-                                                                                        src="${ctx}${book.imageB}"
+                                                                                        src="${ctx}/${book.imageB}"
                                                                                         border="0"/></a>
                     <p class="price">
                         <span class="price_n">&yen;${book.currPrice}</span>
@@ -45,7 +46,7 @@
     </ul>
     <div style="float:left; width: 100%; text-align: center;">
         <br/>
-        <input type="hidden" name="totalPage" value="${page.totalPage}" id="totalPage">
+        <input type="hidden" name="totalPage" value="${totalPage}" id="totalPage">
         <div id="pager"></div>
     </div>
 </c:if>

@@ -2,6 +2,7 @@
 <%@page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -62,11 +63,11 @@
 			<tr class="item2">
 				<td colspan="2" >
 					<table class="orderitemclass">
-						<c:forEach items="${order.orderItems}" var="orderitem">
+						<c:forEach items="${order.orderitems}" var="orderitem">
 							<tr>
 								<td width="70px" >
 									<a class="link2" href="${ctx}/admin/book/editView?bid=${orderitem.bid}" title="${orderitem.bname}">
-										<img border="0"  width="70" src="${ctx}${orderitem.imageB}" />
+										<img border="0"  width="70" src="${ctx}/${orderitem.imageB}" />
 									</a> 
 								</td>
 								<td align="left" width="220px" >
@@ -109,7 +110,7 @@
 		</table>
 		<div style="float:left; width: 100%;height:100px; text-align: center;">
 			<br/>
-			<input type="hidden" name="totalPage" value="${page.totalPage}" id="totalPage">
+			<input type="hidden" name="totalPage" value="${totalPage}" id="totalPage">
 			<div id="pager"></div>
 		</div>
 	</div>

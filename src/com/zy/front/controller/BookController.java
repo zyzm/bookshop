@@ -25,7 +25,7 @@ public class BookController
 	/**
 	 * 根据分类ID查询该分类下所有图书
 	 */
-	@RequestMapping(value = "/getCategoryBooks")
+	@RequestMapping(value = {"/getCategoryBooks"})
 	public String getCategoryBooks(HttpServletRequest request,
 			@RequestParam(value = "cid") String cid,
 			@RequestParam(value = "pageNumber", required = false, defaultValue = "1") int pageNumber,

@@ -13,10 +13,10 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
         url : ctx + '/categories', //返回的数据如果数据有children字段，且children.length == 0 ，则认为存在未加载的子节点
         //leaf = false，没有children字段也会认为子节点未加载，展开时会自动加载
         autoLoad : true,
-        map : {
-            'cname': 'text',
-            'cid': 'id',
-            'childrens': 'children'
+        map : {    //{cname:1}变为{text:1}
+            'categoryName': 'text',
+            'categoryid': 'id',
+            'childCategory': 'children'
         },
         root: {
             text: '图书分类',
@@ -52,14 +52,14 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
 
     //由于这个树，不显示根节点，所以可以不指定根节点
     var tree = new Tree.TreeList({
-        render: '#tree_categories',
-        store: store,
-        dirCls : 'icon-pkg',
+        render: '#tree_categories',  //树加载的节点
+        store: store,  //缓冲数据
+        dirCls : 'icon-pkg',//非叶子节点样式
         leafCls : 'icon-example',
         showLine : true, //显示连接线
         showRoot: true,
-        accordion : true,
-        collapseEvent : null
+        accordion : true,  //是否允许一个节点展开
+        collapseEvent : null  //折叠节点事件
     });
     tree.render();
 
@@ -73,8 +73,8 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
 
     tree.on('itemcontextmenu', function(ev){
         var item = ev.item;
-        tree.setSelected(item);
-        menu.set('xy',[ev.pageX, ev.pageY]);
+        tree.setSelected(item); //设置选中的项
+        menu.set('xy',[ev.pageX, ev.pageY]); //设置属性值，不会触发before+Name+Change,和 after+Name+Change事件
 
         menu.show();
 
@@ -85,7 +85,7 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
         title: '添加分类',
         width: 500,
         height: 300,
-        mask: true,
+        mask: true, //BUI.Component.UIBase.Mask 控件显示时，是否显示屏蔽层
         loader : {
             url : ctx + '/admin/category/editCategory',
             autoLoad : false, //不自动加载
@@ -97,10 +97,10 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
                url:ctx + '/admin/category/saveCategory',
                type: 'post',
                data: {
-                    'category.cid': $('#cid').val(),
-                    'category.cname': $("#cname").val(),
-                    'category.description': $('#description').val(),
-                    'category.pid': $('#pid').val()
+                    'categoryid': $('#cid').val(),
+                    'categoryName': $("#cname").val(),
+                    'description': $('#description').val(),
+                    'parentCategoryId': $('#pid').val()
                },
                success: function(){
                    store.reloadNode();
@@ -115,7 +115,7 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
         var item = tree.getSelected();
         dialog.set("title","添加分类");
         dialog.show();
-        dialog.get('loader').load({pid:item.id});
+        dialog.get('loader').load({pid:item.id});// url : ctx + '/admin/category/editCategory',
     }
 
     function editCategory(e){
@@ -127,14 +127,14 @@ BUI.use(['bui/tree', 'bui/data', 'bui/menu','bui/overlay','bui/mask'],function (
 
     function delCategory(e){
         BUI.Message.Confirm('确认要删除么？',function(){
-            setTimeout(function(){
+            setTimeout(function(){  //0秒后执行此方法，只执行一次
                 var item = tree.getSelected();
                 $.ajax({
                     url:ctx + '/admin/category/delCategory?cid='+item.id,
                     success:function(data){
-                        if(data.status === 1){
+                        if(data['status']== 1){
                             store.reloadNode();
-                            BUI.Message.Alert('删除成功','success');
+                            BUI.Message.Alert('删除成功','success'); //提示信息,图标
                         }
                         else{
                             BUI.Message.Alert(data.msg,'error');

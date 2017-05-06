@@ -93,11 +93,40 @@ public class OrderService
 		orderPage.setTotalRecords(totalRecords);
 		return orderPage;
 	}
+	
+	public Page<Order> getAllOrders(int pageNumber, int pageSize)
+	{
+		List<Order> orderList = orderDao.page("from Order o order by o.ordertime desc",
+				pageNumber, pageSize);
+		Page<Order> orderPage = new Page<Order>();
+		orderPage.setList(orderList);
+		orderPage.setPageNo(pageNumber);
+		orderPage.setPageSize(pageSize);
+		int totalRecords = orderDao.count(
+				"select count(*) from Order o ");
+		orderPage.setTotalRecords(totalRecords);
+		return orderPage;
+	}
 
 	public Order findById(String orderId)
 	{
 		// TODO Auto-generated method stub
 		Order order=orderDao.get("from Order o where o.oid =?", orderId);
 		return order;
+	}
+
+
+	public Page<Order> getOrderByStatus(Integer status, int pageNumber, int i)
+	{
+		List<Order> orderList = orderDao.page("from Order o where o.status = ? order by o.ordertime desc",
+				pageNumber, i, status);
+		Page<Order> orderPage = new Page<Order>();
+		orderPage.setList(orderList);
+		orderPage.setPageNo(pageNumber);
+		orderPage.setPageSize(i);
+		int totalRecords = orderDao.count(
+				"select count(*) from Order o where o.status = ?", status);
+		orderPage.setTotalRecords(totalRecords);
+		return orderPage;
 	}
 }

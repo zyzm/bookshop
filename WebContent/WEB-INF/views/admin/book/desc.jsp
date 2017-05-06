@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -21,7 +22,7 @@
     <br/>
   <div id="show">
     <div class="sm">${book.bname}</div>
-    <img align="top" src="${ctx}${book.image_w}" class="tp"/>
+    <img align="top" src="${ctx}/${book.imageW}" class="tp"/>
     <div id="book" style="float:left;margin-left: 20px;">
 	    <ul>
 	    	<li>商品编号：${book.bid}</li>
@@ -60,58 +61,58 @@
   
   <div id='formDiv' style="display: none;">
    <form action="" method="post" id="form">
-   	<input type="hidden" name="book.bid" value="${book.bid}"/>
-   	<input type="hidden" name="book.image_w" value="${book.image_w}"/>
-   	<input type="hidden" name="book.image_b" value="${book.image_b}"/>
-    <img align="top" src="${ctx}${book.image_w}" class="tp"/>
+   	<input type="hidden" name="bid" value="${book.bid}"/>
+   	<input type="hidden" name="imageW" value="${book.imageW}"/>
+   	<input type="hidden" name="imageB" value="${book.imageB}"/>
+    <img align="top" src="${ctx}/${book.imageW}" class="tp"/>
     <div style="color: blue;">
 	    <ul>
 	    	<li >商品编号：<span style="color:red;">${book.bid}</span></li>
 	    	<li>
 	    	<div style="float: left;width: 60px;">书名：</div>
-	    	<div><textarea title="书籍描述"  style="width:500px;overflow:auto;"   id="bname" rows="5" cols="40" name="book.bname">${book.bname}</textarea></div>
+	    	<div><textarea title="书籍描述"  style="width:500px;overflow:auto;"   id="bname" rows="5" cols="40" name="bname">${book.bname}</textarea></div>
 	    	</li>
-	    	<li>当前价：<input id="currPrice" type="text" name="book.currPrice" value="${book.currPrice}" style="width:50px;"/></li>
-	    	<li>定价：　<input id="price" type="text" name="book.price" value="${book.price}" style="width:50px;"/>
-	    	折扣：<input id="discount" type="text" name="book.discount" value="${book.discount}" style="width:30px;"/>折</li>
+	    	<li>当前价：<input id="currPrice" type="text" name="currPrice" value="${book.currPrice}" style="width:50px;"/></li>
+	    	<li>定价：　<input id="price" type="text" name="price" value="${book.price}" style="width:50px;"/>
+	    	折扣：<input id="discount" type="text" name="discount" value="${book.discount}" style="width:30px;"/>折</li>
 	    </ul>
 		<hr style="margin-left: 50px; height: 1px; color: #dcdcdc"/>
 		<table class="tab" style="color:blue;">
 			<tr>
 				<td colspan="3">
-					作者：　　<input id="author" type="text" name="book.author" value="${book.author}" style="width:150px;"/>
+					作者：　　<input id="author" type="text" name="author" value="${book.author}" style="width:150px;"/>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3">
-					出版社：　<input id="press" type="text" name="book.press" value="${book.press}" style="width:200px;"/>
+					出版社：　<input id="press" type="text" name="press" value="${book.press}" style="width:200px;"/>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3">出版时间：<input class="calendar" id="publishtime" type="text" name="book.publishtime" value="${book.publishtime}" style="width:100px;"/></td>
+				<td colspan="3">出版时间：<input class="calendar" id="publishtime" type="text" name="publishtime" value="${book.publishtime}" style="width:100px;"/></td>
 			</tr>
 			<tr>
-				<td>版次：　　<input id="edition" type="text" name="book.edition" value="${book.edition}" style="width:40px;"/></td>
-				<td>页数：　　<input id="pageNum" type="text" name="book.pageNum" value="${book.pageNum }" style="width:50px;"/></td>
-				<td>字数：　　<input id="wordNum" type="text" name="book.wordNum" value="${book.wordNum }" style="width:80px;"/></td>
+				<td>版次：　　<input id="edition" type="text" name="edition" value="${book.edition}" style="width:40px;"/></td>
+				<td>页数：　　<input id="pageNum" type="text" name="pageNum" value="${book.pageNum }" style="width:50px;"/></td>
+				<td>字数：　　<input id="wordNum" type="text" name="wordNum" value="${book.wordNum }" style="width:80px;"/></td>
 			</tr>
 			<tr>
-				<td width="250px">印刷时间：<input id="printtime" class="calendar"  type="text" name="book.printtime" value="${book.printtime }" style="width:100px;"/></td>
-				<td width="250px">开本：　　<input id="booksize" type="text" name="book.booksize" value="${book.booksize }" style="width:100px;"/></td>
-				<td>纸张：　　<input id="paper" type="text" name="book.paper" value="${book.paper }" style="width:100px;"/></td>
+				<td width="250px">印刷时间：<input id="printtime" class="calendar"  type="text" name="printtime" value="${book.printtime }" style="width:100px;"/></td>
+				<td width="250px">开本：　　<input id="booksize" type="text" name="booksize" value="${book.booksize }" style="width:100px;"/></td>
+				<td>纸张：　　<input id="paper" type="text" name="paper" value="${book.paper }" style="width:100px;"/></td>
 			</tr>
 			<tr>
 				<td>
 					一级分类：<select id="pid" onchange="loadChildren()">
 						<c:forEach items="${levelOneCategoryList }" var="onecategory">
-			    			<option value="${onecategory.cid}" <c:if test='${onecategory.cid eq book.pid}'>selected</c:if>>${onecategory.cname}</option>
+			    			<option value="${onecategory.categoryid}" <c:if test='${onecategory.categoryid eq book_pare_cid}'>selected</c:if>>${onecategory.categoryName}</option>
 			    		</c:forEach>
 					</select>
 				</td>
 				<td>
-					二级分类：<select name="book.cid" id="cid">
+					二级分类：<select name="cid" id="cid">
 						<c:forEach items="${levelTwoCategoryList }" var="twocategory">
-				    		<option <c:if test='${twocategory.cid eq book.cid}'>selected</c:if> value="${twocategory.cid}">${twocategory.cname}</option>
+				    		<option <c:if test='${twocategory.categoryid eq book.cid}'>selected</c:if> value="${twocategory.categoryid}">${twocategory.categoryName}</option>
 				    	</c:forEach>
 					</select>
 				</td>
@@ -149,7 +150,16 @@
 					$("#show").css("display", "block");
 				}
 			});
-
+			// 计算当前价
+			function setCurrPrice()
+			  {
+				  var price = $("#price").val();
+				  var discount = $("#discount").val();
+				  var c=price*discount/10;
+				  $("#currPrice").val(c);
+			  }
+			  $("#price").blur(setCurrPrice);
+			  $("#discount").blur(setCurrPrice);
 			// 编辑和删除按钮样式
 			$("#editBtn").hover(
 					function() {
@@ -189,16 +199,16 @@
 				success:function(data)
 				{
 					if(data.length==0)
-					{
-						var celem=$("<option>").text("请先添加二级分类");
-						$(cidselect).append(celem);
-						return;
-					}
-					for(var i=0;i<data.length;i++)
-					{
-						var celem=$("<option>").attr('value',data[i]['cid']).text(data[i]['cname']);
-						$(cidselect).append(celem);
-					}
+					  {
+						  var celem=$("<option>").text("请先添加二级分类");
+						  $(cidselect).append(celem);
+						  return;
+					  }
+					  for(var i=0;i<data.length;i++)
+					  {
+						  var celem=$("<option>").attr('value',data[i]['categoryid']).text(data[i]['categoryName']);
+						  $(cidselect).append(celem);
+					  }
 				},
 				error:function(){
 					alert('网络错误');
